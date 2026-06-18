@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import bookRoutes from './routes/book.routes.js';
+import studentRoutes from './routes/student.routes.js'
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ const app = express(); // app defined
 app.use(express.json({limit:'10kb'}));  // seted the limitation of the middleware
 
 // routers
+app.use('/api/student',studentRoutes);
 app.use('/api/books',bookRoutes); // calling the book routes
 
 // 404 hhandle
